@@ -9,8 +9,7 @@
     };
     
     var setup = function (that) {
-        var button = $(".requestWifi");
-        $(".requestWifi").click(function () {
+        $(".submitTag").click(function () {
             self.port.emit("wifiRequested");
         });
     };

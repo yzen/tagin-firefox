@@ -1,0 +1,9 @@
+input[type=text] {
+    -moz-border-radius: 6px;
+    width: 80%;
+}
+.submitTag {
+    float: right;
+    -moz-border-radius: 12px;
+    padding: 0 10px;
+}
