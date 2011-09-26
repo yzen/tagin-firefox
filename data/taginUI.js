@@ -4,19 +4,22 @@
 
     var bindEvents = function (that) {
         self.port.on("wifiReceived", function (data) {
-            $(".text").text(JSON.stringify(data));
+            that.tags.text(JSON.stringify(data));
         });
     };
     
     var setup = function (that) {
-        $(".submitTag").click(function () {
-            self.port.emit("wifiRequested");
+        that.button = $(".submitTag");
+        that.tag = $(".tag");
+        that.tags = $(".tags");
+    
+        that.button.click(function () {
+            self.port.emit("tagSubmitted", that.tag.val());
         });
     };
     
     tagin.main = function () {
         var that = {};
-        
         bindEvents(that);
         setup(that);
         return that;
