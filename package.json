@@ -1,9 +1,9 @@
 {
     "name": "tagin", 
     "license": "MPL 1.1/GPL 2.0/LGPL 2.1", 
-    "author": "", 
+    "author": "Yura Zenevich", 
     "version": "0.1", 
     "fullName": "tagin", 
     "id": "jid1-M4742vQK5OvjyQ", 
-    "description": "a basic add-on"
+    "description": "Firefox add-on that tags and displays tags of the wifi environment."
 }

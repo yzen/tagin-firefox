@@ -22,7 +22,7 @@
             var tag = tagArray[i];
             var currentTag = $("<div></div>").addClass("currentTag")
                                              .text(tag.tag)
-                                             .css("font-size", (0.3 / tag.distance + 0.4) + "em");
+                                             .css("font-size", (0.4 / tag.distance + 0.4) + "em");
             that.tags.append(currentTag);
         }
     };
