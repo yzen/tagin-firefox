@@ -18,14 +18,27 @@ var tagin = tagin || {};
         that.selectors.tags.show();
     };
     
+    var countToCallback = function (callback, update, delay) {
+        update(delay);
+        setTimeout(function () {
+            if (delay > 0) {
+                --delay;
+                return countToCallback(callback, update, delay);
+            }
+            callback();
+        }, 1000)
+    };
+
     var handleError = function (that, error) {
         that.selectors.tags.hide();
-        that.selectors.error.text(that.options.strings[error]).show();
         if (error !== "errorFetching") {
+            that.selectors.error.text(that.options.strings[error]).show();
             return;
         }
-        setTimeout(function () {
+        countToCallback(function () {
             self.port.emit("wifiRequested");
+        }, function (delay) {
+            that.selectors.error.text(that.options.strings[error] + delay).show();
         }, that.options.delay);
     };
 
@@ -63,9 +76,9 @@ var tagin = tagin || {};
         },
         strings: {
             errorSaving: "Something went wrong while saving new tag. Please try again...",
-            errorFetching: "Something went wrong while getting wifi data. Trying again in 5 seconds"
+            errorFetching: "Something went wrong while getting wifi data. Trying again in "
         },
-        delay: 5000
+        delay: 5
     });
 
     tagin.main();
