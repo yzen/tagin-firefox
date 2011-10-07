@@ -63,7 +63,7 @@ var tagin = tagin || {};
         },
         strings: {
             errorSaving: "Something went wrong while saving new tag. Please try again...",
-            errorFetching: "Something went wrong while getting wifi data. Trying again in "
+            errorFetching: "Something went wrong while getting wifi data. Trying again in 5 seconds"
         },
         delay: 5000
     });
